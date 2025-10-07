@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thiệp Cưới - Thủy & Phong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Times New Roman', serif; background: #fff8f8; color: #333; text-align: center; }
+    h1 { color: #b30059; }
+    img { max-width: 90%; border-radius: 15px; margin: 10px 0; }
+    .section { padding: 20px; }
+    .countdown { font-size: 22px; color: #b30059; }
+    button { background: #b30059; color: #fff; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <audio id="music" src="nhaccuoi.mp3" loop></audio>
+  <button onclick="document.getElementById('music').play()">🎵 Bật nhạc</button>
+
+  <div class="section">
+    <h1>💒 Thiệp Cưới 💒</h1>
+    <h2>Trân trọng kính mời quý khách đến dự lễ thành hôn</h2>
+    <h2><b>Thủy 💕 Phong</b></h2>
+    <img src="anh1.jpg" alt="Cặp đôi">
+  </div>
+
+  <div class="section">
+    <h3>📅 Thời gian: 11h00, Chủ nhật, ngày 20 tháng 10 năm 2025</h3>
+    <h3>🏠 Địa điểm: Nhà hàng Hoa Viên - TP. Sơn La</h3>
+    <p><a href="https://maps.app.goo.gl/M2aGqXrZP6BnFGJv5" target="_blank">👉 Xem bản đồ Google Maps</a></p>
+  </div>
+
+  <div class="section">
+    <h3>🕒 Đếm ngược đến ngày cưới:</h3>
+    <div id="countdown" class="countdown"></div>
+  </div>
+
+  <div class="section">
+    <h3>🎉 Hân hoan đón chờ ngày vui của chúng tôi 🎉</h3>
+    <img src="anh2.jpg" alt="Ảnh cưới 2">
+  </div>
+
+  <script>
+    const target = new Date("2025-10-20T11:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = target - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      countdown.innerHTML = `${days} ngày ${hours} giờ nữa`;
+    }, 1000);
+  </script>
+</body>
+</html>
